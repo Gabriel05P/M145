@@ -3,6 +3,7 @@
 **Aufgaben Cisco Packet Tracer**
 
 **02:**
+
 How many Fast Ethernet interfaces does the switch have?
 
 24 FastEhternet interfaces
