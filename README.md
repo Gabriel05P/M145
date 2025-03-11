@@ -2,6 +2,95 @@
 
 **Aufgaben Cisco Packet Tracer**
 
+## Aufgabe 01:
+
+### Packet Tracer - Navigate the IOS
+
+### Part 1: Establish Basic Connections, Access the CLI, and Explore Help
+
+**Step 1: Connect PC1 to S1 using a console cable**
+1. Click the **Connections** icon (lightning bolt) in Packet Tracer.
+2. Select the **light blue Console cable**.
+3. Click **PC1** and connect to the **RS-232 port**.
+4. Drag the other end to **S1** and select the **Console port**.
+
+**Step 2: Establish a terminal session with S1**
+1. Click **PC1 → Desktop → Terminal**.
+2. Verify that the **default Port Configuration** settings are correct.
+3. Press **ENTER** when prompted.
+
+### Fragen:
+- **What is the setting for bits per second?** 9600
+- **What is the prompt displayed on the screen?** S1>
+
+**Step 3: Explore the IOS Help**
+
+S1> ?
+S1> t?
+S1> te?
+
+### Part 2: Explore EXEC Modes
+
+**Step 1: Enter privileged EXEC mode**
+
+S1> enable
+S1# ?
+
+### Fragen:
+
+**What information is displayed for the enable command?**
+
+S1> en<Tab>
+
+**What displays after pressing the Tab key?**
+
+What happens if you type te<Tab>?
+
+**Step 2: Enter Global Configuration mode**
+
+S1# configure terminal
+S1(config)# exit
+S1#
+
+### Frage:
+
+What is the message displayed?
+How does the prompt change?
+
+### Part 3: Set the Clock
+
+**Step 1: Use the clock command**
+
+S1# show clock
+
+### Frage:
+
+What information is displayed?
+What is the year that is displayed?
+
+S1# clock ?
+S1# clock set ?
+
+### Fragen:
+
+What information is displayed?
+What information is being requested?
+
+S1# clock set 15:00:00 31 Jan 2035
+S1# show clock
+
+**Ausgabe:**S
+
+*15:0:4.869 UTC Tue Jan 31 2035
+
+Step 2: Explore additional command messages
+
+S1# cl<Tab>
+S1# clock
+S1# clock set 25:00:00
+S1# clock set 15:00:00 32
+
+
 ## Aufgabe 02:
 
 How many Fast Ethernet interfaces does the switch have?
