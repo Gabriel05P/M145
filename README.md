@@ -86,9 +86,8 @@ Ja, der Access Point hat das Signal von kabelgebundenen Geräten in ein drahtlos
 Nein, die MAC- und IP-Adressen bleiben bei der Übertragung erhalten.
 
 **Welche höchste OSI-Schicht wurde vom Hub und Access Point verwendet?**
-
-    Der Hub arbeitet auf Schicht 1 (Physikalische Schicht).
-    Der Access Point arbeitet auf Schicht 2 (Sicherungsschicht), da er MAC-Adressen verarbeitet.
+Der Hub arbeitet auf Schicht 1 (Physikalische Schicht).
+Der Access Point arbeitet auf Schicht 2 (Sicherungsschicht), da er MAC-Adressen verarbeitet.
 
 **Hat der Hub oder Access Point jemals ein PDU repliziert, das mit einem roten „X“ abgelehnt wurde?**
 Nein, sie replizieren nur gültige PDUs.
@@ -127,7 +126,6 @@ Ja, das 172.x.x.x-Netzwerk und das 10.x.x.x-Netzwerk wurden durch den Router get
 Weil Router Netzwerke verbinden und IP-Weiterleitung nur zwischen unterschiedlichen Netzwerken funktioniert.
 
 **Was wäre anders, wenn die Simulation mit IPv6 statt IPv4 konfiguriert wäre?**
-
-    IPv6-Adressen wären länger und hexadezimal dargestellt.
-    Es gäbe keine ARP-Abfragen, da IPv6 Neighbor Discovery Protocol (NDP) verwendet.
-    Automatische Adresskonfiguration wäre möglich, da IPv6 Stateless Address Autoconfiguration (SLAAC) unterstützt.
+IPv6-Adressen wären länger und hexadezimal dargestellt.
+Es gäbe keine ARP-Abfragen, da IPv6 Neighbor Discovery Protocol (NDP) verwendet.
+Automatische Adresskonfiguration wäre möglich, da IPv6 Stateless Address Autoconfiguration (SLAAC) unterstützt.
