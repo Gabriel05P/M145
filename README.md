@@ -16,3 +16,8 @@ What is the range of values shown for the vty lines?
 line vty 0 4
 line vty 5 15
 range of 0-15
+
+
+**04:**
+
+![alt text](Bilder/Cisco_Aufgabe4_screenshot1.png)
