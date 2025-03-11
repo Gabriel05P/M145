@@ -2,7 +2,7 @@
 
 **Aufgaben Cisco Packet Tracer**
 
-**02:**
+## Aufgabe 02:
 
 How many Fast Ethernet interfaces does the switch have?
 
@@ -18,11 +18,10 @@ line vty 5 15
 range of 0-15
 
 
-**04:**
+## Aufgabe 04:
 
-![alt text](Bilder/Cisco_Aufgabe4_screenshot1.png)
 
-| Feld              | Wert              |
+| Feld              | Wert             |
 |-------------------|------------------|
 | Destination MAC  | 000C:85CC:1DA7   |
 | Source MAC       | 00D0:D311:C788   |
@@ -30,7 +29,6 @@ range of 0-15
 | Destination IP   | 172.16.31.2      |
 
 
-![alt text](Bilder/Cisco_Aufgabe4_screenshot2.png)
 
 | At Device     | Dest. MAC       | Src MAC        | Src IPv4     | Dest IPv4    |
 |--------------|----------------|---------------|-------------|-------------|
@@ -39,3 +37,19 @@ range of 0-15
 | Hub          | N/A             | N/A            | 172.16.31.5 | 172.16.31.2 |
 | 172.16.31.2  | 00D0:D311:C788  | 000C:85CC:1DA7 | 172.16.31.2 | 172.16.31.5 |
 | Router       | 000C:85CC:1DA7  | 00D0:D311:C788 | 172.16.31.5 | 172.16.31.2 |
+
+**Step 2**
+
+| At Device     | Dest. MAC       | Src MAC        | Src IPv4     | Dest IPv4    |
+|--------------|----------------|---------------|-------------|-------------|
+| 172.16.31.3  | 000C:85CC:1DA7  | 0060:7036:2849 | 172.16.31.2 | 172.16.31.3 |
+| Switch1      | 000C:85CC:1DA7  | 0060:7036:2849 | 172.16.31.2 | 172.16.31.3 |
+| Hub          | N/A             | N/A            | 172.16.31.2 | 172.16.31.3 |
+| 172.16.31.2  | 0060:7036:2849  | 000C:85CC:1DA7 | 172.16.31.3 | 172.16.31.2 |
+
+| At Device     | Dest. MAC       | Src MAC        | Src IPv4     | Dest IPv4    |
+|--------------|----------------|---------------|-------------|-------------|
+| 172.16.31.4  | 00D0:D311:C788  | 000C:CF0B:BC80 | 172.16.31.4 | 172.16.31.5 |
+| Switch1      | 000C:CF0B:BC80  | 00D0:D311:C788 | 172.16.31.4 | 172.16.31.5 |
+| Hub          | N/A             | N/A            | 172.16.31.4 | 172.16.31.5 |
+| 172.16.31.5  | 000C:CF0B:BC80  | 00D0:D311:C788 | 172.16.31.4 | 172.16.31.5 |
