@@ -21,3 +21,13 @@ range of 0-15
 **04:**
 
 ![alt text](Bilder/Cisco_Aufgabe4_screenshot1.png)
+
+| Feld              | Wert              |
+|-------------------|------------------|
+| Destination MAC  | 000C:85CC:1DA7   |
+| Source MAC       | 00D0:D311:C788   |
+| Source IP        | 172.16.31.5      |
+| Destination IP   | 172.16.31.2      |
+
+
+![alt text](Bilder/Cisco_Aufgabe4_screenshot2.png)
