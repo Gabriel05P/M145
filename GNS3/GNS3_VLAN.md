@@ -62,3 +62,6 @@ ip [IP Adresse] [Subnetz]
 ![alt text](../Bilder/PC4.png)
 ![alt text](<../Bilder/Ping error.png>)
 ![alt text](image.png)
+
+Die Wireshark datei finden Sie unter dem GNS Ordner:
+[text](Wireshark_GNS3_VLAN.pcapng)
