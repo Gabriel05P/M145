@@ -161,9 +161,19 @@ Select DNS servers dns servers: 192.168.0.1
 DNS anpassen  
 /ip dhcp-server network set [find address=192.168.65.0/24] dns-server=192.168.65.1
 
+Ziele
+
+Alle VPCS erhalten via DHCP eine IP-Adresse vom Router R1.
+Die VPCS können den Router R1 anpingen.
+Jede Abteilung hat ein eigenes /24 Subnetz.
+
 ![alt text](<../Bilder/dhcp IP ranges.png>)
 
 ![alt text](<../Bilder/pc1 ping pc5.png>)
+
+![alt text](../Bilder/beweis.png)
+
+[Wireshark](GNS3_VLAN_Aufgabe_6.2.2.pcapng)
 
 ## Probleme:
 
