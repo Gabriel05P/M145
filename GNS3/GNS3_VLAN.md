@@ -46,17 +46,19 @@ ip [IP Adresse] [Subnetz]
 /interface bridge port add bridge=bridge1 frame-types=admit-only-vlan-tagged hw=no interface=ether8
 
 ### Ein VLAN einer Bridge hinzufügen, sowie «tagged» und «untagged» ports definieren. ( Dieser Befehl definiert, welche Ports getaggte und ungetaggte Frames für das VLAN mit der ID 103 senden und empfangen.)
-/interface bridge vlan add bridge=[bridgename] comment="VLAN [Nummer]" tagged=[interfaces kommagetrennt] untagged=[intefaces kommagetrennt] vlan-ids=[VLAN Nummer]
+
+```python
 /interface bridge vlan add bridge=bridge1 comment="VLAN 101" tagged=ether8 untagged=ether4 vlan-ids=101
 /interface bridge vlan add bridge=bridge1 comment="VLAN 102" tagged=ether8 untagged=ether5 vlan-ids=102
 /interface bridge vlan add bridge=bridge1 comment="VLAN 103" tagged=ether8 untagged=ether6 vlan-ids=103
+```
 
 ### Den Hostnamen / Namen des Gerätes setzen:
 /system identity set name=[Name]
 /system identity set name=SW1
 /system identity set name=SW2
 
-## PING Funktioniert:
+### PING Funktioniert:
 
 ![alt text](../Bilder/image-1.png)
 ![alt text](../Bilder/PC4.png)
@@ -82,3 +84,5 @@ Sie können einen Router für mehrere Subnetze konfigurieren.
 ### 6.2.2. Aufgabe
 
 ![Bilder/Aufgabe 6.2.2.png](<../Bilder/Aufgabe 6.2.2.png>)
+
+
