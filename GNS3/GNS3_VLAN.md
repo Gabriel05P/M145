@@ -33,17 +33,19 @@ PC6: 192.168.51.6
 ip [IP Adresse] [Subnetz]
 
 ### Neue VLAN fähige Bridge hinzufügen
-/interface bridge add name=[bridgename] protocol-mode=none vlan-filtering=yes
-/interface bridge add name=bridge1 protocol-mode=none vlan-filtering=yes
+
+```/interface bridge add name=bridge1 protocol-mode=none vlan-filtering=yes```
 
 ### Einen Port (Only Untagged) zu einer Bridge hinzufügen (z.B. für ein Endgerät)
-/interface bridge port add bridge=[bridgename] comment="VLAN [Nummer] – [Name Abteilung]" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=[interface] pvid=[VLAN Nummer]
+```python
 /interface bridge port add bridge=bridge1 comment="VLAN 101 – Buchhaltung" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether4 pvid=101
 /interface bridge port add bridge=bridge1 comment="VLAN 102 – Entwicklung" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether5 pvid=102
 /interface bridge port add bridge=bridge1 comment="VLAN 103 – Verkauf" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether6 pvid=103
+```
 
 ### Einen Port (Only Tagged) zu einer Bridge hinzufügen (z.B. als Trunk)
-/interface bridge port add bridge=bridge1 frame-types=admit-only-vlan-tagged hw=no interface=ether8
+
+```/interface bridge port add bridge=bridge1 frame-types=admit-only-vlan-tagged hw=no interface=ether8```
 
 ### Ein VLAN einer Bridge hinzufügen, sowie «tagged» und «untagged» ports definieren. ( Dieser Befehl definiert, welche Ports getaggte und ungetaggte Frames für das VLAN mit der ID 103 senden und empfangen.)
 
