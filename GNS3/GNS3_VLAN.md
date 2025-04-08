@@ -91,4 +91,98 @@ Sie können einen Router für mehrere Subnetze konfigurieren.
 
 ![Bilder/Aufgabe 6.2.2.png](<../Bilder/Aufgabe 6.2.2.png>)
 
+Die Subnetzmasken die ich verwendet habe:
 
+192.168.31.0/24
+192.168.41.0/24
+192.168.51.0/24
+
+Konfigurieren Sie auf dem Router die drei VLAN Interfaces. 
+```python
+/interface vlan add interface=ether2 vlan-id=101 name=ether2_vlan101
+/interface vlan add interface=ether2 vlan-id=102 name=ether2_vlan102
+/interface vlan add interface=ether2 vlan-id=203 name=ether2_vlan103
+```
+
+Geben Sie jedem VLAN interface eine praxisübliche Hostadresse.
+```python
+/ip address add address=192.168.31.1/24 interface=ether2_vlan101
+/ip address add address=192.168.41.1/24 interface=ether2_vlan102
+/ip address add address=192.168.51.1/24 interface=ether2_vlan103
+```
+
+Passen Sie SW1 an und fügen Sie ether2 als Tagged Port für die drei VLANs hinzu.
+```python
+/interface bridge vlan set numbers=0 tagged=ether8,ether2 untagged=ether4
+/interface bridge vlan set numbers=1 tagged=ether8,ether2 untagged=ether5
+/interface bridge vlan set numbers=2 tagged=ether8,ether2 untagged=ether6
+
+
+/interface bridge port add bridge=bridge1 interface=ether2
+/interface bridge vlan add bridge=bridge1 tagged=ether2 vlan-ids=101,102,103
+```
+DHCP Server für jedes Interface hinzufügen:
+
+VLAN101:  
+/ip dhcp-server setup  
+ether2_vlan101  
+192.168.31.0/24  
+192.168.31.1  
+192.168.31.2-192.168.31.254  
+8.8.8.8  
+2d  
+
+VLAN102:  
+/ip dhcp-server setup  
+ether2_vlan102  
+192.168.41.0/24  
+192.168.41.1  
+192.168.41.2-192.168.41.254  
+8.8.8.8  
+2d  
+
+VLAN103:  
+/ip dhcp-server setup  
+ether2_vlan103  
+192.168.51.0/24  
+192.168.51.1  
+192.168.51.2-192.168.51.254  
+8.8.8.8  
+2d  
+
+/ip dhcp-server setup  
+ehter1  
+192.168.0.0/24  
+192.168.0.1  
+192.168.0.2-192.168.0.254  
+Select DNS servers dns servers: 192.168.0.1  
+2d  
+
+DNS anpassen  
+/ip dhcp-server network set [find address=192.168.65.0/24] dns-server=192.168.65.1
+
+![alt text](<../Bilder/dhcp IP ranges.png>)
+
+![alt text](<../Bilder/pc1 ping pc5.png>)
+
+## Probleme:
+
+Der DHCP hat keine IP Adressen an PC3 und PC6 zugewiesen. Beide sind vom VLAN103.
+
+Ich habe mir nochmals die Konfigurationen angeschaut. Mir ist aufgefallen, dass der DHCP für VLAN103 zweimal existiert hat. Ich den fehlerhaften dhcp entfernt.
+
+![alt text](../Bilder/fehlersuche.png)
+
+Jedoch ging der DHCP immernoch nicht. Ich habe weiter geschaut und mit dem Befehl "/ip pool print" gesehen, dass auch hier 3mal die gleiche range auf 3 verschiedenen DHCP pools verteilt war.
+
+![alt text](../Bilder/fehlersuche2.png)
+
+Diese habe ich auch entfernt.
+
+![alt text](../Bilder/entfernt.png)
+
+Ich musste dann noch mit dem Befehl "/ip dhcp-server print without paging kontrollieren ob jetzt der richtige pool zugewiesen wurde. Dies war nicht der fall es stand *6 drauf. dies habe ich so geändert das der richtige pool angegeben wurde. Der Befehl ist im screenshot ersichtlich.
+
+![alt text](../Bilder/Korrigiert.png)
+
+ich habe es schlussendlich noch einmal versucht und es ging danach leider immernoch nicht. 
