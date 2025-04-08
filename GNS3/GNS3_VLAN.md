@@ -169,7 +169,7 @@ DNS anpassen
 
 Der DHCP hat keine IP Adressen an PC3 und PC6 zugewiesen. Beide sind vom VLAN103.
 
-Ich habe mir nochmals die Konfigurationen angeschaut. Mir ist aufgefallen, dass der DHCP für VLAN103 zweimal existiert hat. Ich den fehlerhaften dhcp entfernt.
+Ich habe mir nochmals die Konfigurationen angeschaut. Mir ist aufgefallen, dass der DHCP für VLAN103 zweimal existierte. Ich habe den fehlerhaften dhcp entfernt.
 
 ![alt text](../Bilder/fehlersuche.png)
 
