@@ -61,8 +61,24 @@ ip [IP Adresse] [Subnetz]
 ![alt text](../Bilder/image-1.png)
 ![alt text](../Bilder/PC4.png)
 ![alt text](<../Bilder/Ping error.png>)
-![alt text](image.png)
+![alt text](../Bilder/PC2.png)
 
 Die Wireshark datei finden Sie hier:
 
 [Wireshark_GNS3_VLAN](Wireshark_GNS3_VLAN.pcapng)
+
+## 6.2. Übung 4 – Praxisnahes VLAN Beispiel mit Router und DHCP Server
+In der Praxis erhält jedes VLAN ein eigenes Subnetz (Grundregeln: Ein Subnetz
+pro VLAN), ein Default Gateway, einen DHCP Server. In dieser Aufgabe erweitern
+Sie Ihr Netzwerk aus Übung 3 mit diesen Komponenten.
+
+### 6.2.1. Lernziele
+
+Sie können einen DHCP-Server konfigurieren.
+Sie können einen DNS-Server konfigurieren.
+Sie können einen Router für mehrere Subnetze konfigurieren.
+
+
+### 6.2.2. Aufgabe
+
+![Bilder/Aufgabe 6.2.2.png](<../Bilder/Aufgabe 6.2.2.png>)
