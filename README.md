@@ -322,3 +322,81 @@ Ja, da der Router eine ARP-Anfrage von 172.16.31.2 erhalten hat, speichert er de
 
 Der erste Ping schlägt oft fehl oder hat eine Verzögerung, weil der Router zuerst eine ARP-Anfrage senden muss, um die MAC-Adresse von 172.16.31.2 oder 10.10.10.1 zu lernen.
 Sobald der Router die ARP-Antwort erhält, kann er den Ping weiterleiten.
+
+# Cisco Packet Tracer - VLAN
+
+## Aufgabe 10 Investigate a VLAN Implementation
+
+Step 1: Ping from PC1 to PC6.
+
+Wait for all the link lights to turn to green. To accelerate this process, click Fast Forward Time located in the bottom tool bar.
+
+Click the Simulation tab and use the Add Simple PDU tool. Click PC1, and then click PC6.
+
+Click the Capture/Forward button to step through the process. Observe the ARP requests as they traverse the network. When the Buffer Full window appears, click the View Previous Events button.
+
+**Were the pings successful? Explain.**
+
+Nein, die Pings waren nicht erfolgreich. Es hat nicht funktioniert da PC1 und PC6 in verschiedene VLAN sind.
+
+**Look at the Simulation Panel, where did S3 send the packet after receiving it?**
+
+Switch S3 hat das Paket nur an die Ports weitergeleitet, die zu VLAN 10 gehören. Denn Broadcasts innerhalb desselben VLANs bleiben. Weil PC6 in VLAN 30 ist, hat S3 das Paket nicht an den Port von PC6 gesendet.
+
+**Step 2: Ping from PC1 to PC4.**
+
+**Were the pings successful? Explain.**
+
+Ja die Pings waren erfolgreich. Da beide im selben VLAN sind, können sie sich gegenseitig erreichen.
+
+**When the packet reached S1, why does it also forward the packet to PC7?**
+
+Switch S1 leitete das Paket an alle Ports weiter, die dem VLAN 10 zugeordnet sind. Da sich auch PC7 in VLAN 10 befindet, empfing er das Broadcast-Paket, obwohl er nicht der eigentliche Zielrechner war. Der Grund dafür ist, dass der Switch zu diesem Zeitpunkt noch nicht wusste, an welchem Port PC7 angeschlossen ist, und deshalb beim ersten Mal ein Broadcast gesendet wird.
+
+**14.2 Observe Broadcast Traffic without VLANs**
+
+**Step 1: Clear the configurations on all three switches and delete the VLAN database.**
+
+Delete the startup configuration on all 3 switches.
+
+**What command is used to delete the startup configuration of the switches?**
+
+![alt text](<Bilder/erase befehl.png>)
+
+**Where is the VLAN file stored in the switches?**
+
+Standardmäßig liegt diese Datei im Flash-Speicher des Switches:
+
+flash:vlan.dat
+
+**What command deletes the VLAN file stored in the switches?**
+
+![alt text](Bilder/delete.png)
+
+
+**14.3 Reflection Questions**
+
+**If a PC in VLAN 10 sends a broadcast message, which devices receive it?**
+PC1, PC4 und PC7.
+
+**If a PC in VLAN 20 sends a broadcast message, which devices receive it?**
+
+PC2, PC5 und PC8.
+
+**If a PC in VLAN 30 sends a broadcast message, which devices receive it?**
+PC3, PC6 und PC9.
+
+**What happens to a frame sent from a PC in VLAN 10 to a PC in VLAN 30?**
+
+Da VLANs den Datenverkehr zwischen verschiedenen VLANs isolieren, kann ein Frame von VLAN 10 nicht direkt an ein Gerät in VLAN 30 gesendet werden. Für die Kommunikation zwischen VLANs ein Router oder L3-Switch erforderlich, um das Routing zwischen den VLANs zu ermöglichen. Der Frame kommt also nie an.
+
+**In terms of ports, what are the collision domains on the switch?**
+
+Jeder Port eines Switches bildet eine eigene Kollisionsdomäne, was bedeutet, dass Datenkollisionen auf den jeweiligen Port beschränkt bleiben und sich nicht auf den gesamten Switch auswirken. Dadurch wird die Netzwerkleistung erheblich verbessert, da jeder Port unabhängig arbeitet. Da jeder Host direkt mit einem Switch-Port verbunden ist, profitiert er davon, dass nur sehr wenige Kollisionen auftreten und er die gesamte an diesem Anschluss verfügbare Bandbreite nutzen kann. Diese Eigenschaften stellen wesentliche Vorteile der Verwendung von Switches in einem Computernetzwerk dar.
+
+**In terms of ports, what are the broadcast domains on the switch?**
+
+Standardmässig gehören alle Ports eines Switches zur selben Broadcast-Domäne. Das bedeutet, dass eine Broadcast-Nachricht an alle Ports des Switches weitergeleitet wird. Durch die Implementierung von VLANs wird der Switch jedoch in mehrere Broadcast-Domänen unterteilt, wobei jede VLAN eine eigene Broadcast-Domäne bildet. Dadurch wird der Broadcast-Verkehr auf das jeweilige VLAN beschränkt und die Netzwerkleistung verbessert.
+
+Eine Broadcast-Domäne ist eine Sammlung von Geräten, die Broadcast-Verkehr voneinander empfangen. Switches leiten Broadcast-Verkehr an alle Schnittstellen weiter, ausser an diejenige, von der er ausgeht.
+
